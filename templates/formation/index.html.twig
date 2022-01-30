@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="heading text-center">
+        <h1>Formation</h1>
+    </div>
+    <div class="container">
+        {% for formations in formation %}
+        <div class="row mt-5">
+            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2  align-self-center">
+                <p>{{ formations.yearsStartAt|date("y/m")  }}</p>
+                <p>{{ formations.yearsEndAt|date("y/m") }}</p>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 rightArea">
+                <h4>{{ formations.title }}</h4>
+                <p>{{ formations.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

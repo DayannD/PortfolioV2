@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="heading text-center">
+        <h1>Expériences</h1>
+    </div>
+    <div class="container">
+        {% for experiences in experience %}
+        <div class="row mt-5">
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2  align-self-center">
+                    <p>{{ experiences.yearsStartAt|date("y/m")  }}</p>
+                    <p>{{ experiences.yearsEndAt|date("y/m") }}</p>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 rightArea">
+                    <h4>{{ experiences.title }}</h4>
+                    <h5>{{ experiences.titleSpe }}</h5>
+                    <p>{{ experiences.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

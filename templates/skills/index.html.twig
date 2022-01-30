@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row align-items-start">
+            {% for skill in skills %}
+            <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4 skills">
+                <h3 class="text-center">{{ skill.title }}</h3>
+                <p>{{ skill.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
