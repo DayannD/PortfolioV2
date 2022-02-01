@@ -31,14 +31,10 @@ class AppFixtures extends Fixture
 
         $user = new User();
 
-        $user->setEmail('test@gmail.com')
-             ->setPassword('password');
-        
-        $hashedPassword = $this->passwordHasher->hashPassword(
-            $user,
-             $user->getPassword()
-            );
-        $user->setPassword($hashedPassword);
+        $user->setEmail('test@gmail.com');
+
+        $password = $this->passwordHasher->hashPassword($user, 'password');
+        $user->setPassword($password);
 
         $manager->persist($user);
 
@@ -47,7 +43,8 @@ class AppFixtures extends Fixture
             $project = new Project();
             $project->setLink($faker->url())
                     ->setDescription($faker->text())
-                    ->setTitle($faker->word());
+                    ->setTitle($faker->word())
+                    ->setImage('call-of-duty-black-ops-3-61f9008ca61bb382258827.jpg');
             $manager->persist($project);
         }
 
@@ -67,7 +64,8 @@ class AppFixtures extends Fixture
         {
             $skills = new Skills(); 
             $skills->setTitle($faker->word())
-            ->setDescription($faker->text());
+                   ->setDescription($faker->text())
+                   ->setImage('call-of-duty-black-ops-3-61f9008ca61bb382258827.jpg');
             $manager->persist($skills);
         }
 
